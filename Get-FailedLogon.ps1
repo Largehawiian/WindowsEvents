@@ -1,4 +1,3 @@
-#
 function Get-FailedLogon {
     [CmdletBinding()]
     param(
