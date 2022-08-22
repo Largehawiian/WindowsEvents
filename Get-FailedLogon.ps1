@@ -3,7 +3,21 @@ function Get-FailedLogon {
     param(
         [parameter(ValueFromPipeline)][array]$InputObject
     )
-    
+    <#
+    .SYNOPSIS
+        Filters Windows Event Log for failed logon events.
+    .DESCRIPTION
+        Filters Windows Event Log for failed logon events sorting relevant information into an object.
+    .NOTES
+        
+    .LINK
+        https://github.com/Largehawiian/WindowsEvents
+    .EXAMPLE
+    Get-WinEvent -MaxEvents 500 -FilterHashtable @{
+    LogName = "Security"
+    ID      = "4625"
+    } | Get-FailedLogon | Format-Table
+    #>
     begin {
         class LogonEvent {
             [String]$TimeCreated
