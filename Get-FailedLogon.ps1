@@ -1,9 +1,4 @@
-function Get-FailedLogon {
-    [CmdletBinding()]
-    param(
-        [parameter(ValueFromPipeline)][array]$InputObject
-    )
-    <#
+<#
     .SYNOPSIS
         Filters Windows Event Log for failed logon events.
     .DESCRIPTION
@@ -18,6 +13,11 @@ function Get-FailedLogon {
     ID      = "4625"
     } | Get-FailedLogon | Format-Table
     #>
+function Get-FailedLogon {
+    [CmdletBinding()]
+    param(
+        [parameter(ValueFromPipeline)][array]$InputObject
+    )
     begin {
         class LogonEvent {
             [String]$TimeCreated
